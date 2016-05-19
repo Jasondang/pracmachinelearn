@@ -80,7 +80,7 @@ testing1 <- training[-inTrain,]
 
 ###Classification Tree
 The first model chosen for the analysis of the data was the classification tree using the Rpart method. The following code was executed for this model. 
-```{r echo=TRUE}
+```{r}
 #First method Rpart
 set.seed(10)
 modRpart <- rpart(classe~., data=training1, method="class")
@@ -88,7 +88,7 @@ fancyRpartPlot(modRpart)
 ```
 
 To analyse the accuracy of this model, it was tested against the testing subset of the original data using the following code:
-```{r echo=TRUE}
+```{r}
 predRpart <- predict(modRpart, testing1, type="class")
 confusionMatrix(predRpart, testing1$classe)
 ```
